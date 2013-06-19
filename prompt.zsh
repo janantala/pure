@@ -51,6 +51,11 @@ cmd_exec_time() {
 	[ $elapsed -gt $CMD_MAX_EXEC_TIME ] && echo ${elapsed}s
 }
 
+# Opens a new tab in the same directory
+chpwd () {
+	print -Pn "\e]2; %~/ \a"
+}
+
 preexec() {
 	cmd_timestamp=`date +%s`
 }
